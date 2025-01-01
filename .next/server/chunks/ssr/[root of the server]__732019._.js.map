@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 15, "column": 0}, "map": {"version":3,"sources":["file:///home/enma/projects/surveyapp/survey-app-frontend/src/pages/_app.js"],"sourcesContent":["import '../styles/styles.css'\n\nfunction MyApp({ Component, pageProps }) {\n  // Component es la página que se está renderizando\n  // pageProps son las props específicas de la página\n  return <Component {...pageProps} />;\n}\n\nexport default MyApp;\n"],"names":[],"mappings":";;;;;;AAEA,SAAS,MAAM,EAAE,SAAS,EAAE,SAAS,EAAE;IACrC,kDAAkD;IAClD,mDAAmD;IACnD,qBAAO,qKAAC;QAAW,GAAG,SAAS;;;;;;AACjC;uCAEe"}},
-    {"offset": {"line": 33, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}
