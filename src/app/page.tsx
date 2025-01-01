@@ -1,13 +1,12 @@
-import Image from "next/image";
-import '../styles/styles.css'
+import './styles/styles.css'
 
 export default function Home() {
   return (
     <div>
       <header>
-        <h1>Encuestas</h1>
+        <h1>QuickPolls</h1>
         <div className="profile-pic">
-          <img src="img/descarga.jpg" alt="Foto de perfil" />
+        <img src="https://api.dicebear.com/9.x/bottts/svg?seed=Christian" alt="avatar" />
         </div>
       </header>
 
