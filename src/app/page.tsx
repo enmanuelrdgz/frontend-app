@@ -3,12 +3,6 @@ import './styles/styles.css'
 export default function Home() {
   return (
     <div>
-      <header>
-        <h1>QuickPolls</h1>
-        <div className="profile-pic">
-        <img src="https://api.dicebear.com/9.x/bottts/svg?seed=Christian" alt="avatar" />
-        </div>
-      </header>
 
       <main>
         <div className="survey">
