@@ -30,7 +30,6 @@ export default function RootLayout({
       >
         <Header title="Questify"/> {/* El Header se muestra globalmente */}
         {children} {/* El contenido de las demás páginas se renderiza aquí */}
-        {children}
       </body>
     </html>
   );
