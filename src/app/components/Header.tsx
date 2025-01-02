@@ -1,19 +1,21 @@
+"use client"
+
 import styles from "../styles/Header.module.css"
+import { useAuth } from "../context/AuthContext";
 
-type HeaderProps = {
-  title: string; 
-};
 
-const Header: React.FC<HeaderProps> = ({ title }) => {
+const Header: React.FC = () => {
+
+  const { isAuthenticated, login, logout } = useAuth();
+
   return (
-    <header className={styles.header}>
-      <div className={styles["header-container-1"]}>
-        <h1>{title}</h1>
-      </div>
-      <div className={styles["header-container-2"]}>
-        <img src="https://api.dicebear.com/9.x/bottts/svg?seed=Christian" alt="avatar" width={50} height={50}/>
-      </div>
-    </header>
+    <header className={styles["header"]}>
+    {isAuthenticated ? (
+      <button onClick={logout}>Logout</button>
+    ) : (
+      <button className={styles["loginButton"]} onClick={login}>Login</button>
+    )}
+  </header>   
   );
 };
 
