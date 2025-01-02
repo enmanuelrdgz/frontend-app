@@ -1,7 +1,11 @@
+"use client"
+
 import './styles/styles.css'
+import { AuthProvider } from "./context/AuthContext"; 
 
 export default function Home() {
   return (
+    <AuthProvider>
     <div>
 
       <main>
@@ -38,5 +42,6 @@ export default function Home() {
         </div>
       </main>
     </div>
+    </AuthProvider>
   );
 }
