@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   return (
     <header className={styles["header"]}>
     {isAuthenticated ? (
-      <button onClick={logout}>Logout</button>
+      <button className={styles["loginButton"]} onClick={logout}>Logout</button>
     ) : (
       <button className={styles["loginButton"]} onClick={login}>Login</button>
     )}

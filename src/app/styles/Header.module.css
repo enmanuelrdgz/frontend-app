@@ -3,20 +3,23 @@
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     color: black;
 }
 
-.header-container-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.loginButton {
+    margin-right: 20px;
+    background-color: #c7c7c7;
+    padding: 10px;
+    border-radius: 50;
+    width: 100px;
 }
 
-.header-container-2 {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    flex-grow: 2;
+.loginButton:active {
+    margin-right: 20px;
+    background-color: #969696;
+    padding: 10px;
+    border-radius: 50;
+    width: 100px;
 }
