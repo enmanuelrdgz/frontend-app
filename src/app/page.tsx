@@ -1,9 +1,10 @@
 "use client"
 
-import '../styles/styles.css'
+import styles from '../styles/HomeStyles.module.css'
 import { AuthProvider } from "../context/AuthContext"; 
 import { fetchSurveys, Survey, Option, Creator } from "../services/fetchSurveys"
 import { useState, useEffect } from 'react';
+
 
 export default function Home() {
     // Estado para controlar la carga de datos
@@ -66,21 +67,23 @@ export default function Home() {
             {
               data.map((survey: Survey) => (
                   <li key={survey.id}>
-                    <div className='survey-container'>
-                      <div className='title-container'>
-                        <h2 className='title'>{survey.title}</h2>
+                    <div className={styles["survey-container"]}>
+                      <div className={styles["title-container"]}>
+                        <h2 className={styles["title"]}>{survey.title}</h2>
                       </div>
-                      <div className='options-container'>
+                      <div className={styles["option-container"]}>
+                        <ul>
                         {
                           survey.options.map((option) => (
                             <li key={option.id}>
-                              <div className='option-container'>
-                                <span className='option-name'>{option.name}</span>
-                                <span className='option-votes'>{option.votes}</span>
+                              <div className={styles["option"]}>
+                                <span className={styles["option-name"]}>{option.name}</span>
+                                <span className={styles["votes"]}>Votes: <span className='vote-count'>{option.votes}</span></span>
                               </div>
                             </li>
                           ))
                         }
+                        </ul>
                       </div>
                     </div>
                   </li>
