@@ -1,21 +1,56 @@
 "use client"
 
 import styles from "../styles/Header.module.css"
-import { useAuth } from "../context/AuthContext";
-
+import Link from "next/link"
+import { useAuth } from "@/context/AuthContext";
 
 const Header: React.FC = () => {
 
-  const { isAuthenticated, login, logout } = useAuth();
+  const { isAuthenticated } = useAuth();
+
 
   return (
-    <header className={styles["header"]}>
-    {isAuthenticated ? (
-      <button className={styles["loginButton"]} onClick={logout}>Logout</button>
-    ) : (
-      <button className={styles["loginButton"]} onClick={login}>Login</button>
-    )}
-  </header>   
+    <>
+      {
+        isAuthenticated ?
+
+        (
+          <header className={styles["header"]}>
+            <button className={styles["button"]}>
+              <Link href="/">
+                Logout
+              </Link>
+            </button>
+
+            <button className={styles["button"]}>
+              <Link href="/create">
+                Create Survey
+              </Link>
+            </button>
+
+          </header>
+        )
+
+        :
+
+        (
+          <header className={styles["header"]}>
+            <button className={styles["button"]}>
+              <Link href="/register">
+                Register
+              </Link>
+            </button>
+
+            <button className={styles["button"]}>
+              <Link href="/login">
+                Login
+              </Link>
+            </button>
+          </header>   
+        )
+
+      }
+    </>
   );
 };
 
