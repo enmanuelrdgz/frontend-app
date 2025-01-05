@@ -1,9 +1,10 @@
 "use client"
 
-import styles from '../styles/HomeStyles.module.css'
-import { AuthProvider } from "../context/AuthContext"; 
+import styles from '../styles/index.module.css'
 import { fetchSurveys, Survey, Option, Creator } from "../services/fetchSurveys"
 import { useState, useEffect } from 'react';
+import Header from '@/components/Header';
+import SurveyCard from '@/components/SurveyCard';
 
 
 export default function Home() {
@@ -42,10 +43,9 @@ export default function Home() {
     
 
   return (
-    <AuthProvider>
-    <div>
-
-      <main>
+      <>
+      <Header />
+      <main className={styles["main"]}>
         {
           loading ?
           (
@@ -56,8 +56,20 @@ export default function Home() {
           
           error ? 
 
+          ( 
+            <div>
+              <h1>Error</h1>
+            </div>
+          )
+
+          :
+
+          data.length == 0 ?
+
           (
-            <h1>Error...</h1>
+            <div>
+              <h2>No Surveys :(</h2>
+            </div>
           )
 
           :
@@ -67,25 +79,7 @@ export default function Home() {
             {
               data.map((survey: Survey) => (
                   <li key={survey.id}>
-                    <div className={styles["survey-container"]}>
-                      <div className={styles["title-container"]}>
-                        <h2 className={styles["title"]}>{survey.title}</h2>
-                      </div>
-                      <div className={styles["option-container"]}>
-                        <ul>
-                        {
-                          survey.options.map((option) => (
-                            <li key={option.id}>
-                              <div className={styles["option"]}>
-                                <span className={styles["option-name"]}>{option.name}</span>
-                                <span className={styles["votes"]}>Votes: <span className='vote-count'>{option.votes}</span></span>
-                              </div>
-                            </li>
-                          ))
-                        }
-                        </ul>
-                      </div>
-                    </div>
+                    <SurveyCard title={survey.title} options={survey.options} />
                   </li>
               ))
             }
@@ -95,7 +89,6 @@ export default function Home() {
         }
 
       </main>
-    </div>
-    </AuthProvider>
+      </>
   );
 }
