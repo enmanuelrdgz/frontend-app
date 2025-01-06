@@ -50,7 +50,8 @@ const CreateSurveyCard: React.FC = () => {
     // Procesar la encuesta (puedes enviarla a una API aquí)
     const requestBody = {
         title: title,
-        options: options
+        options: options,
+        token: localStorage.getItem("token")
     }
 
     axios.post(process.env.NEXT_PUBLIC_API_URL + "/api/survey", requestBody)

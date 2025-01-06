@@ -33,7 +33,10 @@ export default function RegisterCard() {
 
     // Enviar datos a la API
     axios.post(process.env.NEXT_PUBLIC_API_URL + "/api/auth/register", formData)
-    .then(() => {
+    .then( response => {
+      const token = response.data.token;
+      // Guardar el token en LocalStorage
+      localStorage.setItem("token", token);
       login();
       router.push("/");
     })
