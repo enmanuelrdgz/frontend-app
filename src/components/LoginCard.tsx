@@ -33,7 +33,10 @@ export default function LoginCard() {
 
     // Enviar datos a la API
     axios.post(process.env.NEXT_PUBLIC_API_URL + "/api/auth/login", formData)
-    .then(() => {
+    .then( response => {
+      const token = response.data.token;
+      // Guardar el token en LocalStorage
+      localStorage.setItem("token", token);
       login();
       router.push("/");
     })
