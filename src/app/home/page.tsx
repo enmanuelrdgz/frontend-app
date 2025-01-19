@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import styles from "../../styles/homePage.module.css"
 import Link from "next/link";
@@ -36,6 +38,8 @@ const PollApp: React.FC = () => {
       {/* Main */}
       <main className={styles["main"]}>
         {/* Encuesta */}
+        <ul>
+
         <div className={styles["poll"]}>
           {/* Poll Header */}
           <section className={styles["poll-header"]}>
@@ -70,6 +74,9 @@ const PollApp: React.FC = () => {
             </div>
           </section>
         </div>
+
+        </ul>
+        
 
         {/* Botón Load More */}
         <button className={styles["btn"]}>Load More</button>
