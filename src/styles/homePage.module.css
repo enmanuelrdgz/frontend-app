@@ -111,6 +111,10 @@ body {
     height: 100px;
   }
   
+  .poll-title {
+    text-align: center;
+  }
+
   .main {
     display: flex;
     flex-direction: column;

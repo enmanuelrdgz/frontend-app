@@ -103,6 +103,8 @@ useEffect(() => {
                       <p className={styles["date"]}>{survey.created_at}</p>
                     </section>
 
+                    <h2 className={styles["poll-title"]}>{survey.title}</h2>
+
                     {/* Poll Body */}
                     <section className={styles["poll-body"]}>
                       {survey.options.map((option, index) => (
@@ -112,11 +114,11 @@ useEffect(() => {
                           <div className={styles["option-bar-container"]}>
                             <div
                               className={styles["option-bar"]}
-                              style={{ width: `${calcultePercentage(survey.total_votes, option.votes)}%` }}
+                              style={{ width: `${calcultePercentage(option.votes, survey.total_votes - option.votes)}%` }}
                             ></div>
                           </div>
                           <div className={styles["option-percentage"]}>
-                            <p>{calcultePercentage(survey.total_votes, option.votes)}%</p>
+                            <p>{calcultePercentage(option.votes, survey.total_votes - option.votes).toFixed(0)}%</p>
                           </div>
                         </div>
                       ))}
