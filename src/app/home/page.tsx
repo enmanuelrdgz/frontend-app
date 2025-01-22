@@ -109,16 +109,16 @@ useEffect(() => {
                     <section className={styles["poll-body"]}>
                       {survey.options.map((option, index) => (
                         <div className={styles["option"]} key={index}>
-                          <input type="radio" name="option" />
+                          <input type="radio" name="option"/>
                           <h3 className={styles["option-name"]}>{option.name}</h3>
                           <div className={styles["option-bar-container"]}>
                             <div
                               className={styles["option-bar"]}
-                              style={{ width: `${calcultePercentage(option.votes, survey.total_votes - option.votes)}%` }}
+                              style={{ width: `${calcultePercentage(option.votes, survey.total_votes)}%` }}
                             ></div>
                           </div>
                           <div className={styles["option-percentage"]}>
-                            <p>{calcultePercentage(option.votes, survey.total_votes - option.votes).toFixed(0)}%</p>
+                            <p>{calcultePercentage(option.votes, survey.total_votes).toFixed(0)}%</p>
                           </div>
                         </div>
                       ))}

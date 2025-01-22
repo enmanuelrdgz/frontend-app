@@ -36,6 +36,7 @@ const LoginPage: React.FC = () => {
         axios.post(process.env.NEXT_PUBLIC_API_URL + "/api/auth/login", data)
         .then((response: AxiosResponse) => {
             localStorage.setItem("token", response.data.token)
+            localStorage.setItem("id", response.data.id)
             //autenticar
             router.push('/home');
         })
