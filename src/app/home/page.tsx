@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { fetchSurveys, Survey } from "@/services/fetchSurveys";
 import calcultePercentage from "@/utils/calculatePercentage";
-
+import Poll from "../../components/Poll"
 
 
 // Componente principal
@@ -95,42 +95,7 @@ useEffect(() => {
             {
               data.map((survey: Survey) => (
                   <li key={survey.id}>
-                    <div className={styles["poll"]}>
-                    {/* Poll Header */}
-                    <section className={styles["poll-header"]}>
-                      <img className={styles["profile-picture"]} alt="Profile" />
-                      <p className={styles["username"]}>{survey.creator.nickname}</p>
-                      <p className={styles["date"]}>{survey.created_at}</p>
-                    </section>
-
-                    <h2 className={styles["poll-title"]}>{survey.title}</h2>
-
-                    {/* Poll Body */}
-                    <section className={styles["poll-body"]}>
-                      {survey.options.map((option, index) => (
-                        <div className={styles["option"]} key={index}>
-                          <input type="radio" name="option"/>
-                          <h3 className={styles["option-name"]}>{option.name}</h3>
-                          <div className={styles["option-bar-container"]}>
-                            <div
-                              className={styles["option-bar"]}
-                              style={{ width: `${calcultePercentage(option.votes, survey.total_votes)}%` }}
-                            ></div>
-                          </div>
-                          <div className={styles["option-percentage"]}>
-                            <p>{calcultePercentage(option.votes, survey.total_votes).toFixed(0)}%</p>
-                          </div>
-                        </div>
-                      ))}
-                    </section>
-
-                    {/* Poll Footer */}
-                    <section className={styles["poll-footer"]}>
-                      <div className={styles["poll-total-votes"]}>
-                        <p>Total Votes: {survey.total_votes}</p>
-                      </div>
-                    </section>
-                  </div>
+                    <Poll id={survey.id} title={survey.title} creator={survey.creator} options={survey.options} total_votes={survey.total_votes} created_at={survey.created_at}></Poll>
                   </li>
               ))
             }
