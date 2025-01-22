@@ -4,7 +4,6 @@ export type Option = {
     id: number,
     name: string,
     votes: number,
-    percentage: number
 }
 
 export type Creator = {
@@ -15,11 +14,11 @@ export type Creator = {
 
 export type Survey = {
     id: number,
-    title: String,
+    title: string,
     creator: Creator,
     options: Option[],
     total_votes: number,
-    created_at: number
+    created_at: string
 }
 
 export const fetchSurveys = async (): Promise<Survey[]> => {

@@ -159,6 +159,8 @@ body {
   .poll-list {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .btn-header {
