@@ -3,7 +3,7 @@
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
 import styles from '../styles/registerPage.module.css';
 import Link from 'next/link';
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { Axios, AxiosError, AxiosResponse } from 'axios';
 import { useRouter } from 'next/navigation';
 
 const LoginPage: React.FC = () => {
@@ -39,8 +39,8 @@ const LoginPage: React.FC = () => {
             //autenticar
             router.push('/home');
         })
-        .catch((e: any) => {
-            alert(e.response.data.message)
+        .catch((e: AxiosError) => {
+            alert(e)
         }) 
     }
 

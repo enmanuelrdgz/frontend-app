@@ -152,6 +152,11 @@ body {
     margin-right: 20px;
   }
 
+  .poll-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
   .btn-header {
     height: 100%;
     width: 100%;

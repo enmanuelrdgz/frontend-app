@@ -3,7 +3,8 @@ import axios from "axios";
 export type Option = {
     id: number,
     name: string,
-    votes: number
+    votes: number,
+    percentage: number
 }
 
 export type Creator = {
@@ -16,7 +17,9 @@ export type Survey = {
     id: number,
     title: String,
     creator: Creator,
-    options: Option[]
+    options: Option[],
+    total_votes: number,
+    created_at: number
 }
 
 export const fetchSurveys = async (): Promise<Survey[]> => {
