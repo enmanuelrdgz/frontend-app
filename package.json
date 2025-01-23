@@ -1,7 +1,14 @@
 {
-  "name": "survey-app-frontend",
-  "version": "0.1.0",
-  "private": true,
+  "name": "generic-poll-system-client",
+  "version": "1.0.0",
+  "description": "A web client for a Generic Poll System",
+  "author": "Enmanuel Rodriguez <enmaundostres@gmail.com> (https://github.com/enma11235)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enma11235/generic-poll-system-client"
+  },
+  "private": false,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
