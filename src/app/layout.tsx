@@ -1,10 +1,9 @@
-// app/layout.tsx
-import '../styles/globals.css';
+import './globals.css';
 import { ReactNode } from 'react';
 
 export const metadata = {
-    title: 'Mi Aplicación',
-    description: 'Descripción de mi aplicación',
+    title: 'Poll System',
+    description: 'A generic poll system',
 };
 
 interface RootLayoutProps {
@@ -13,7 +12,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
     return (
-        <html lang="es">
+        <html lang="en">
             <body>{children}</body>
         </html>
     );
