@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/enma11235/generic-poll-system-client"
+    "url": "https://github.com/enma11235/poll-system-client"
   },
   "private": false,
   "scripts": {
