@@ -25,13 +25,13 @@ const Poll: React.FC<Survey> = ({id, title, creator, options, total_votes, creat
       };
 
     return (
-        <div className={styles["poll"]}>
+        <article className={styles["poll"]}>
             {/* Poll Header */}
-            <section className={styles["poll-header"]}>
+            <header className={styles["poll-header"]}>
                 <img className={styles["profile-picture"]} alt="Profile" />
-                <p className={styles["username"]}>{pollData.creator.nickname}</p>
-                <p className={styles["date"]}>{pollData.created_at}</p>
-            </section>
+                <address className={styles["username"]}>{pollData.creator.nickname}</address>
+                <em className={styles["date"]}>{pollData.created_at}</em>
+            </header>
 
             <h2 className={styles["poll-title"]}>{pollData.title}</h2>
 
@@ -55,12 +55,12 @@ const Poll: React.FC<Survey> = ({id, title, creator, options, total_votes, creat
             </section>
 
             {/* Poll Footer */}
-            <section className={styles["poll-footer"]}>
+            <footer className={styles["poll-footer"]}>
                 <div className={styles["poll-total-votes"]}>
-                <p>Total Votes: {pollData.total_votes}</p>
+                <em>Total Votes: {pollData.total_votes}</em>
                 </div>
-            </section>
-        </div>
+            </footer>
+        </article>
     )
 }
 
