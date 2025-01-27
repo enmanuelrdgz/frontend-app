@@ -88,7 +88,7 @@ const EditProfilePage: React.FC = () => {
     return (
         <div className={styles["layout"]}>
             <h1>Edit Profile</h1>
-
+            <form>
             {/* Username Input */}
             <label htmlFor="username">Username</label>
             <input
@@ -119,7 +119,7 @@ const EditProfilePage: React.FC = () => {
             />
 
             <button className={styles["btn-upload"]}>Upload Image</button>
-            <input className={styles["upload-image"]} type='file'/>
+            <input className={styles["upload-image"]} type='image'/>
 
             {/* Buttons */}
             <button className={styles["btn"]} type="submit" onClick={handleSubmit}>
@@ -131,6 +131,8 @@ const EditProfilePage: React.FC = () => {
                     Go Back
                 </button>
             </Link>
+            </form>
+
                 
         </div>
     );

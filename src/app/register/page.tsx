@@ -48,7 +48,7 @@ const RegisterPage: React.FC = () => {
     }
 
     return (
-        <main className={styles["register-page"]}>
+        <>
             <h1>Create a new account</h1>
             <form className={styles["register-form"]}>
                 <input
@@ -66,15 +66,13 @@ const RegisterPage: React.FC = () => {
                     onChange={updatePassword}
                 />
                 <Link href="/">
-                    <p className={styles["link"]}>Log In</p>
+                    <strong className={styles["link"]}>Log In</strong> 
                 </Link>
-                <Link href="/home">
-                    <button className={styles["btn"]} type="submit" onClick={sendData}>
-                        Register
-                    </button>
-                </Link>
+                <button className={styles["btn"]} type="submit" onClick={sendData}>
+                    Register
+                </button>
             </form>
-        </main>
+        </>
     );
 };
 

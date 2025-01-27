@@ -42,7 +42,7 @@ useEffect(() => {
 }, []); // El array vacío asegura que se ejecute solo una vez al montar el componente
 
   return (
-    <div >
+    <>
       {/* Header */}
       <header className={styles["header"]}>
         <Link href="/create" className={styles["link"]}>
@@ -56,7 +56,7 @@ useEffect(() => {
         </Link>
       </header>
 
-      <div className={styles["gap"]}></div>
+      <div className={styles["gap"]}/>
 
       {/* Main */}
       <main className={styles["main"]}>
@@ -72,9 +72,7 @@ useEffect(() => {
           error ? 
 
           ( 
-            <>
-              <h1>Something went wrong...</h1>
-            </>
+            <h1>Something went wrong...</h1>
           )
 
           :
@@ -82,9 +80,7 @@ useEffect(() => {
           data.length == 0 ?
 
           (
-            <div>
-              <h2>No Surveys</h2>
-            </div>
+            <h1>No Surveys</h1>
           )
 
           :
@@ -101,16 +97,14 @@ useEffect(() => {
             }
             </ul>
             
-            {/* Botón Load More */}
             <button className={styles["btn"]}>Load More</button>
 
             </>
           )
 
         }
-        
       </main>
-    </div>
+    </>
   );
 };
 
