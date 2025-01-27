@@ -64,7 +64,7 @@ const LoginPage: React.FC = () => {
                     onChange={updatePassword}
                 />
                 <Link href="/register">
-                    <p className={styles["link"]}>Create a new account</p>
+                    <strong className={styles["link"]}>Create a new account</strong>
                 </Link>
                 <button className={styles["btn"]} type="submit" onClick={sendData}>
                     Log In

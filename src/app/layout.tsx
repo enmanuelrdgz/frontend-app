@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 interface RootLayoutProps {
-    children: ReactNode; // Especifica que `children` debe ser un nodo de React
+    children: ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
