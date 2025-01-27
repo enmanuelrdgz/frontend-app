@@ -42,69 +42,42 @@ useEffect(() => {
 }, []); // El array vacío asegura que se ejecute solo una vez al montar el componente
 
   return (
-    <>
-      {/* Header */}
-      <header className={styles["header"]}>
-        <Link href="/create" className={styles["link"]}>
-          <button className={styles["btn-header"]}>New Poll</button>
-        </Link>
-        <Link href="/" className={styles["link"]}>
-          <button className={styles["btn-header"]}>Log Out</button>
-        </Link>
-        <Link href="/edit" className={styles["link"]}>
-          <button className={styles["btn-header"]}>Edit Profile</button>
-        </Link>
-      </header>
+    <main className={styles["main"]}>
+      <section>
+        <button>Global</button>
+        <button>Following</button>
+      </section>
 
-      <div className={styles["gap"]}/>
-
-      {/* Main */}
-      <main className={styles["main"]}>
-        
-      {
-          loading ?
-          (
-            <h1>Loading...</h1>
-          ) 
-          
-          :
-          
-          error ? 
-
-          ( 
-            <h1>Something went wrong...</h1>
-          )
-
-          :
-
-          data.length == 0 ?
-
-          (
-            <h1>No Surveys</h1>
-          )
-
-          :
-
-          (
-            <>
-            <ul className={styles["poll-list"]}>
-            {
-              data.map((survey: Survey) => (
-                  <li key={survey.id}>
-                    <Poll id={survey.id} title={survey.title} creator={survey.creator} options={survey.options} total_votes={survey.total_votes} created_at={survey.created_at}></Poll>
-                  </li>
-              ))
-            }
-            </ul>
-            
-            <button className={styles["btn"]}>Load More</button>
-
-            </>
-          )
-
+      {/* encuestas globales */}
+      <section>
+        <ul className={styles["poll-list"]}>
+        {
+          data.map((survey: Survey) => (
+              <li key={survey.id}>
+                <Poll id={survey.id} title={survey.title} creator={survey.creator} options={survey.options} total_votes={survey.total_votes} created_at={survey.created_at}></Poll>
+              </li>
+          ))
         }
-      </main>
-    </>
+        </ul>
+
+        <button className={styles["btn"]}>Load More</button>
+      </section>
+      
+      {/* encuestas de mis seguidos */}
+      <section>
+        <ul className={styles["poll-list"]}>
+        {
+          data.map((survey: Survey) => (
+              <li key={survey.id}>
+                <Poll id={survey.id} title={survey.title} creator={survey.creator} options={survey.options} total_votes={survey.total_votes} created_at={survey.created_at}></Poll>
+              </li>
+          ))
+        }
+        </ul>
+
+        <button className={styles["btn"]}>Load More</button>
+      </section>
+    </main>
   );
 };
 

@@ -74,56 +74,54 @@ const CreatePollPage: React.FC = () => {
   };
 
   return (
-      <div className={styles["layout"]}>
-          <h1>Create Poll</h1>
-          <div className={styles["option-title"]}>
-            <h3>Title</h3>
-          </div>
-          <input className={styles["input"]} type="text" onChange={handleTitleChange}/>
-          <div className={styles["options-container"]} id="options-container">
+    <main className={styles["layout"]}>
+        <h1>Create Poll</h1>
 
-          <div className={styles["option-title"]}>
-            <h3>Options</h3>
-          </div>
+        <p>Description for this page</p>
 
-            {/* Inputs dinámicos para las opciones */}
-            <div className={styles["options-container"]}>
-              {options.map((option, index) => (
-                <div key={index} className={styles["option-container"]}>
-                  <div className={styles["option-input"]}>
-                    <input
-                      type="text"
-                      value={option}
-                      onChange={(e) => handleOptionChange(index, e.target.value)}
-                      placeholder={`Option ${index + 1}`}
-                      className={styles["input"]}
-                    />
+        <form>
+            <fieldset>
+                <legend>Enter the poll title</legend>
+                <label>Title:
+                    <input className={styles["input"]} type="text" onChange={handleTitleChange}/>
+                </label>
+            </fieldset>
 
-                    <button
-                      className={styles["remove-option-btn"]}
-                      type="button"
-                      onClick={() => removeOption(index)}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                  
-                </div>
-              ))}
-            </div>
+            <fieldset>
+                <legend>Enter the poll options</legend>
 
-            {/* Botón para agregar nueva opción */}
-            <button type="button" onClick={addOption} className={styles["add-option-btn"]}>
-              Add New Option
-            </button>
+                <ul>
+                    {options.map((option, index) => (
+                    <li key={index} className={styles["option-container"]}>
+                        <label>Option:
+                            <input
+                                type="text"
+                                value={option}
+                                onChange={(e) => handleOptionChange(index, e.target.value)}
+                                placeholder={`Option ${index + 1}`}
+                                className={styles["input"]}
+                            />
+                        </label>
+                        
+                        <button
+                            className={styles["remove-option-btn"]}
+                            type="button"
+                            onClick={() => removeOption(index)}
+                        >
+                            Remove
+                        </button>                        
+                    </li>
+                    ))}
+                </ul>
 
-          </div>
-          
-          <button className={styles["btn"]} type="submit" onClick={handleSubmit}>Create</button>
-          <Link href="/home">
-          <button className={styles["btn"]}>Go Back</button>
-          </Link>
-      </div>
+                <button type="button" onClick={addOption} className={styles["add-option-btn"]}>
+                    Add New Option
+                </button>
+            </fieldset>
+
+            <button>Create</button>
+        </form>
+    </main>
   );
 };
 

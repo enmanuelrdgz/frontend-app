@@ -47,29 +47,96 @@ const LoginPage: React.FC = () => {
 
     return (
         <main className={styles["main"]}>
-            <h1>Log In</h1>
-            <form className={styles["register-form"]}>
-                <input
-                    className={styles["input"]}
-                    type="text"
-                    placeholder="Username"
-                    aria-label="Username"
-                    onChange={updateUsername}
-                />
-                <input
-                    className={styles["input"]}
-                    type="password"
-                    placeholder="Password"
-                    aria-label="Password"
-                    onChange={updatePassword}
-                />
-                <Link href="/register">
-                    <strong className={styles["link"]}>Create a new account</strong>
-                </Link>
-                <button className={styles["btn"]} type="submit" onClick={sendData}>
-                    Log In
-                </button>
-            </form>
+            <section>
+                <h1>Welcome to Quick Polls!</h1>
+                <p>
+                    This platform allows users to create, share, and participate in polls, providing a seamless and interactive experience.
+                </p>
+            </section>
+            
+            <section>
+                <button>Log In</button>
+
+                <dialog>
+                    <form className={styles["register-form"]}>
+                        <h2>Log In</h2>
+
+                        <fieldset>
+                            <legend>Enter your nickname and password</legend>
+
+                            <label>Nickname:
+                                <input
+                                    className={styles["input"]}
+                                    type="text"
+                                    aria-label="Nickname"
+                                    onChange={updateUsername}
+                                    required
+                                />
+                            </label>
+                            
+                            <label>Password:
+                                <input
+                                    className={styles["input"]}
+                                    type="password"
+                                    minLength={8}
+                                    aria-label="Password"
+                                    onChange={updatePassword}
+                                    required
+                                />
+                            </label>
+
+                            <button className={styles["btn"]} type="submit">
+                                Send
+                            </button>
+                        </fieldset>
+
+                        <strong>Mensaje dinamico devuelto por la api</strong>
+                    </form>       
+                </dialog>
+            </section>
+
+            <section>
+                <button>Sign Up</button>    
+
+                <dialog>
+                    <form className={styles["register-form"]}>
+                        <h2>Sign Up</h2>
+
+                        <fieldset>
+                            <legend>Enter a new nickname and password</legend>
+
+                            <small>The password must be at least 8 characters long</small>
+
+                            <label>Nickname:
+                                <input
+                                    className={styles["input"]}
+                                    type="text"
+                                    aria-label="Nickname"
+                                    onChange={updateUsername}
+                                    required
+                                />
+                            </label>
+                            
+                            <label>Password:
+                                <input
+                                    className={styles["input"]}
+                                    type="password"
+                                    minLength={8}
+                                    aria-label="Password"
+                                    onChange={updatePassword}
+                                    required
+                                />
+                            </label>
+
+                            <button className={styles["btn"]} type="submit">
+                                Send
+                            </button>
+                        </fieldset>
+
+                        <strong>Mensaje dinamico devuelto por la api</strong>  
+                    </form>       
+                </dialog>
+            </section>
         </main>
     );
 };
