@@ -11,10 +11,8 @@ const IndexPage: React.FC = () => {
     return (
         <main>
             <section>
-                <h1>Index Page</h1>
-                <p>
-                    Description for index page
-                </p>
+                <h1>Quick Polls</h1>
+                <p>Create, participate, and share polls</p>
             </section>
             
             <section>

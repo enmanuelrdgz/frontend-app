@@ -1,6 +1,6 @@
 import React from "react";
 import Poll from "../../components/Poll"
-import { PollData } from "@/types/Poll";
+import { PollData } from "@/lib/definitions";
 
 const HomePage: React.FC = async () => {
 

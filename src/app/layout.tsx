@@ -1,4 +1,4 @@
-import './globals.css';
+import '@styles/globals.css';
 import { ReactNode } from 'react';
 
 export const metadata = {
@@ -23,19 +23,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </head>
 
             <body>
-                <header>
-                    <nav>
-                        <ul>
-                            {/* sobre que es esta pagina*/}
-                            <li>About</li>
-                            {/* explicar la estructura del sistema */}
-                            <li>Documentation</li>
-                            {/* para contactarse conmigo */}
-                            <li>Contact</li>
-                        </ul>
-                    </nav>
-                </header>
-                
                 {children}
             </body>
         </html>
