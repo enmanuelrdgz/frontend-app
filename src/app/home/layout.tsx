@@ -1,32 +1,27 @@
-import { ReactNode } from 'react';
 import Link from 'next/link';
 
-interface RootLayoutProps {
-    children: ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function HomeLayout({ children }: {children: React.ReactNode}) {
     return (
         <>
             <aside>
-                <Link href="/create">
-                <button>Home</button>
+                <Link href="/home">
+                    Home
                 </Link>
 
-                <Link href="/create">
-                <button>Create Poll</button>
+                <Link href="/home/createPoll">
+                    Create Poll
                 </Link>
 
-                <Link href="/create">
-                <button>My Polls</button>
+                <Link href="/home/myPolls">
+                    My Polls
                 </Link>
 
-                <Link href="/edit">
-                <button>Edit Profile</button>
+                <Link href="/home/editProfile">
+                    Edit Profile
                 </Link>
 
                 <Link href="/">
-                <button>Log Out</button>
+                    Log Out
                 </Link>       
             </aside>
 
