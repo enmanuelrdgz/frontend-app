@@ -86,30 +86,31 @@ const EditProfilePage: React.FC = () => {
       };
 
     return (
-        <div className={styles["layout"]}>
+        <main className={styles["layout"]}>
             <h1>Edit Profile</h1>
-            <form>
-            {/* Username Input */}
-            <label htmlFor="username">Username</label>
-            <input
-                id="username"
-                className={styles["input"]}
-                type="text"
-                placeholder="username"
-                onChange={handleNicknameChange}
-                value={nickname}
-            />
 
-            {/* Password Input */}
-            <label htmlFor="password">Password</label>
-            <input
-                id="password"
-                className={styles["input"]}
-                type="password"
-                placeholder="password"
-                onChange={handlePasswordChange}
-                value={password}
-            />
+            <form>
+                <label>Username
+                    <input
+                        className={styles["input"]}
+                        type="text"
+                        placeholder="username"
+                        onChange={handleNicknameChange}
+                        value={nickname}
+                    />
+                </label>
+            
+                <label htmlFor="password">Password
+                    <input
+                        id="password"
+                        className={styles["input"]}
+                        type="password"
+                        placeholder="password"
+                        onChange={handlePasswordChange}
+                        value={password}
+                    />
+                </label>
+            
 
             {/* Profile Picture */}
             <img
@@ -134,7 +135,7 @@ const EditProfilePage: React.FC = () => {
             </form>
 
                 
-        </div>
+        </main>
     );
 };
 

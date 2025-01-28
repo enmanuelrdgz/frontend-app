@@ -1,64 +1,73 @@
 "use client"
 
-import React, { useState, ChangeEvent, MouseEvent } from 'react';
-import styles from '../styles/registerPage.module.css';
-import Link from 'next/link';
-import axios, { Axios, AxiosError, AxiosResponse } from 'axios';
-import { useRouter } from 'next/navigation';
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, useState, useEffect } from "react";
 
-const LoginPage: React.FC = () => {
+const IndexPage: React.FC = () => {
 
-    const router = useRouter();
+    const router = useRouter()
 
-    const [username, setUsername] = useState<String>("");
-    const [password, setPassword] = useState<String>("");
+    const [isLoginDialogOpen, setIsLoginDialogOpen] = useState<boolean>(false);
+    const [isSignUpDialogOpen, setIsSignUpDialogOpen] = useState<boolean>(false);
 
-    // funciones para actualizar el estado
+    const [loginFormNicknameInput, setLoginFormNicknameInput] = useState<string>("")
+    const [loginFormPasswordInput, setLoginFormPasswordInput] = useState<string>("")
+    const [signUpFormNicknameInput, setSignUpFormNicknameInput] = useState<string>("")
+    const [signUpFormPasswordInput, setSignUpFormPasswordInput] = useState<string>("")
 
-    function updateUsername(e : ChangeEvent<HTMLInputElement>) {
-        setUsername(e.target.value);
-    }
-
-    function updatePassword(e : ChangeEvent<HTMLInputElement>) {
-        setPassword(e.target.value)
-    }
-
-    // funcion para enviar los datos al servidor
-
-    function sendData(e: MouseEvent<HTMLButtonElement>) {
-        e.preventDefault();
-        
-        const data = {
-            nickname: username,
-            password: password
-        }
-
-        axios.post(process.env.NEXT_PUBLIC_API_URL + "/api/auth/login", data)
-        .then((response: AxiosResponse) => {
-            localStorage.setItem("token", response.data.token)
-            localStorage.setItem("id", response.data.id)
-            //autenticar
-            router.push('/home');
+    const handleLoginSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
+        axios.post("url", {nickname: loginFormNicknameInput, password: loginFormPasswordInput})
+        .then(res => {
+            localStorage.setItem("token", res.data.token)
+            router.push("/home")
         })
-        .catch((e: AxiosError) => {
-            alert(e)
-        }) 
+        .catch()
+    };
+
+    const handleSignUpSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
+        axios.post("url", {nickname: signUpFormNicknameInput, password: signUpFormPasswordInput})
+        .then(res => {
+            localStorage.setItem("token", res.data.token)
+            router.push("/home")
+        })
+        .catch(err => {
+            
+        })
+    };
+
+    const handleLoginFormNicknameInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setLoginFormNicknameInput(event.target.value)
+    }
+
+    const handleLoginFormPasswordInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setLoginFormPasswordInput(event.target.value)
+    }
+
+    const handleSignUpFormNicknameInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setSignUpFormNicknameInput(event.target.value)
+    }
+
+    const handleSignUpFormPasswordInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setSignUpFormPasswordInput(event.target.value)
     }
 
     return (
-        <main className={styles["main"]}>
+        <main>
             <section>
-                <h1>Welcome to Quick Polls!</h1>
+                <h1>Index Page</h1>
                 <p>
-                    This platform allows users to create, share, and participate in polls, providing a seamless and interactive experience.
+                    Description for index page
                 </p>
             </section>
             
             <section>
-                <button>Log In</button>
+                <button onClick={() => setIsLoginDialogOpen(true)}>Log In</button>
 
-                <dialog>
-                    <form className={styles["register-form"]}>
+                <dialog open={isLoginDialogOpen} onClose={() => setIsLoginDialogOpen(false)}>
+                    <form onSubmit={handleLoginSubmit}>
                         <h2>Log In</h2>
 
                         <fieldset>
@@ -66,40 +75,38 @@ const LoginPage: React.FC = () => {
 
                             <label>Nickname:
                                 <input
-                                    className={styles["input"]}
                                     type="text"
-                                    aria-label="Nickname"
-                                    onChange={updateUsername}
+                                    onChange={handleLoginFormNicknameInputChange}
                                     required
                                 />
                             </label>
                             
                             <label>Password:
                                 <input
-                                    className={styles["input"]}
                                     type="password"
+                                    onChange={handleLoginFormPasswordInputChange}
                                     minLength={8}
-                                    aria-label="Password"
-                                    onChange={updatePassword}
                                     required
                                 />
                             </label>
 
-                            <button className={styles["btn"]} type="submit">
+                            <button type="submit">
                                 Send
                             </button>
                         </fieldset>
 
                         <strong>Mensaje dinamico devuelto por la api</strong>
-                    </form>       
+                    </form>
+
+                    <button onClick={() => setIsLoginDialogOpen(false)}>Go Back</button>       
                 </dialog>
             </section>
 
             <section>
-                <button>Sign Up</button>    
+                <button onClick={() => setIsSignUpDialogOpen(true)}>Sign Up</button>    
 
-                <dialog>
-                    <form className={styles["register-form"]}>
+                <dialog open={isSignUpDialogOpen} onClose={() => setIsSignUpDialogOpen(false)}>
+                    <form onSubmit={handleSignUpSubmit}>
                         <h2>Sign Up</h2>
 
                         <fieldset>
@@ -109,36 +116,33 @@ const LoginPage: React.FC = () => {
 
                             <label>Nickname:
                                 <input
-                                    className={styles["input"]}
                                     type="text"
-                                    aria-label="Nickname"
-                                    onChange={updateUsername}
+                                    onChange={handleSignUpFormNicknameInputChange}
                                     required
                                 />
                             </label>
                             
                             <label>Password:
                                 <input
-                                    className={styles["input"]}
                                     type="password"
+                                    onChange={handleSignUpFormPasswordInputChange}
                                     minLength={8}
-                                    aria-label="Password"
-                                    onChange={updatePassword}
                                     required
                                 />
                             </label>
 
-                            <button className={styles["btn"]} type="submit">
+                            <button type="submit">
                                 Send
                             </button>
                         </fieldset>
 
                         <strong>Mensaje dinamico devuelto por la api</strong>  
-                    </form>       
+                    </form>   
+                    <button onClick={() => setIsSignUpDialogOpen(false)}>Close</button>    
                 </dialog>
             </section>
         </main>
     );
 };
 
-export default LoginPage;
+export default IndexPage;
