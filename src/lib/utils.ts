@@ -1,4 +1,4 @@
-export default function calcultePercentage(option_votes: number, total_votes: number): number {
+export function calcultePercentage(option_votes: number, total_votes: number): number {
     if(total_votes == 0) {
         return 0
     } else {
