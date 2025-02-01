@@ -1,0 +1,44 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.btnContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn {
+    border-radius: 50px;
+    color: white;
+    background-color: #151515;
+    width: 160px;
+    height: 40px;
+}
+
+.btn2 {
+    border-radius: 50px;
+    background-color: #D4D4D4;
+    width: 160px;
+    height: 40px;
+}
+
+.dialog {
+    position: absolute;
+    height: 500px;
+    width: 600px;
+    margin: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+    background-color: #151515;
+    color: white;
+    border: 0;
+    box-sizing: border-box;
+    padding: 100px;
+}

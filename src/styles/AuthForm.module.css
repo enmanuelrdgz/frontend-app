@@ -1,0 +1,18 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.inputsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

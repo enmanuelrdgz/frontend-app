@@ -3,7 +3,7 @@
 import calcultePercentage from "@/lib/calculatePercentage";
 import { useState } from "react";
 import axios from "axios";
-import { PollData } from "@/types/Poll";
+import { PollData } from "@/lib/definitions";
 
 const Poll: React.FC<PollData> = ({id, title, user, options, votes, created_at}) => {
 
