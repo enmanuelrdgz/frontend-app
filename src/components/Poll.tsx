@@ -1,9 +1,10 @@
-import React, { useSyncExternalStore } from "react";
+import React from "react";
 import calcultePercentage from "@/utils/calculatePercentage";
 import styles from "../styles/homePage.module.css"
 import { useState } from "react";
 import axios from "axios";
 import { Survey } from "@/services/fetchSurveys";
+import Image from "next/image";
 
 
 const Poll: React.FC<Survey> = ({id, title, creator, options, total_votes, created_at}) => {
@@ -28,7 +29,7 @@ const Poll: React.FC<Survey> = ({id, title, creator, options, total_votes, creat
         <div className={styles["poll"]}>
             {/* Poll Header */}
             <section className={styles["poll-header"]}>
-                <img className={styles["profile-picture"]} alt="Profile" />
+                <Image className={styles["profile-picture"]} alt="Profile" src=""/>
                 <p className={styles["username"]}>{pollData.creator.nickname}</p>
                 <p className={styles["date"]}>{pollData.created_at}</p>
             </section>

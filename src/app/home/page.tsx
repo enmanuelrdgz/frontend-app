@@ -5,7 +5,6 @@ import styles from "../../styles/homePage.module.css"
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { fetchSurveys, Survey } from "@/services/fetchSurveys";
-import calcultePercentage from "@/utils/calculatePercentage";
 import Poll from "../../components/Poll"
 
 

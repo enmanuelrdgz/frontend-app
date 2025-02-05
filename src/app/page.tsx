@@ -3,15 +3,15 @@
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
 import styles from '../styles/registerPage.module.css';
 import Link from 'next/link';
-import axios, { Axios, AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import { useRouter } from 'next/navigation';
 
 const LoginPage: React.FC = () => {
 
     const router = useRouter();
 
-    const [username, setUsername] = useState<String>("");
-    const [password, setPassword] = useState<String>("");
+    const [username, setUsername] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
     // funciones para actualizar el estado
 

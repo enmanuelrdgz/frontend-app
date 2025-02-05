@@ -4,19 +4,18 @@ import React from 'react';
 import styles from "../../styles/editProfilePage.module.css"
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { User, fetchUser } from '@/services/fetchUser';
+import { fetchUser } from '@/services/fetchUser';
 import axios from 'axios';
+import Image from 'next/image';
 
 const EditProfilePage: React.FC = () => {
 
-    // Estado para controlar la carga de datos
-    const [loading, setLoading] = useState<boolean>(true);
+   
     //Estado para almacenar el nickname
     const [nickname, setNickname] = useState<string>("")
     //Estado para almacenar la password
     const [password, setPassword] = useState<string>("")
-    // Estado para manejar posibles errores
-    const [error, setError] = useState<string | null>(null);
+
 
     useEffect(() => {
       // Función asincrónica que realiza la solicitud a la API
@@ -30,12 +29,10 @@ const EditProfilePage: React.FC = () => {
             setPassword(user.password)        
 
           })
-          .catch((error) => {
-            setError(error)
+          .catch(() => {
           })
           .finally(() => {
             // Siempre que la solicitud termine, actualizamos el estado de carga
-            setLoading(false);
           })
         }
         // Llamamos a la función fetchData para hacer la solicitud
@@ -112,7 +109,7 @@ const EditProfilePage: React.FC = () => {
             />
 
             {/* Profile Picture */}
-            <img
+            <Image
                 className={styles["profile-picture"]}
                 src="/placeholder-profile.png" // Cambia esta ruta si tienes una imagen por defecto
                 alt="Profile"

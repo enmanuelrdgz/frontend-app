@@ -9,7 +9,7 @@ export type Option = {
 export type Creator = {
     id: number,
     nickname: string
-    image: String
+    image: string
 }
 
 export type Survey = {

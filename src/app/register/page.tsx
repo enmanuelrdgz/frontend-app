@@ -5,15 +5,15 @@ import styles from '../../styles/registerPage.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
-import axios, { Axios, AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 
 
 const RegisterPage: React.FC = () => {
 
     const router = useRouter();
 
-    const [username, setUsername] = useState<String>("");
-    const [password, setPassword] = useState<String>("");
+    const [username, setUsername] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
     // funciones para actualizar el estado
 
