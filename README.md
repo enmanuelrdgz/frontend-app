@@ -1,30 +1,42 @@
-# Generic Poll System Client
+# quickpolls-client (2.0.0)
 
-This is the web client for a Generic Poll System. It's built with **Next.js** and provides a user-friendly interface to create, manage, and participate in polls. The backend logic is powered by a Spring Boot API, which connects to a PostgreSQL database.
-
-## Features
-
-- Create and manage surveys with ease.
-- Participate in surveys with a responsive and intuitive UI.
-- Real-time communication with the Spring Boot API.
-- Built with modern web technologies:
-  - **Next.js** for server-side rendering and React-based UI.
-  - **Tailwind CSS** for styling.
+This is the web client for QuickPolls. It's built with **Next.js** and provides a user-friendly interface to create, manage, and participate in polls. The backend logic is powered by a Spring Boot API, which connects to a PostgreSQL database.
 
 ## Prerequisites
 
 Before running the application, ensure you have the following installed:
 
-- **Node.js** (v16 or higher)
-- **npm** or **yarn** package manager
-- Access to the Spring Boot API for backend communication
+- **Node.js** (v18.19.1)
+- **npm** (v9.2.0)
+- [**quickpolls-core**](https://github.com/enmanuelrdgz/quickpolls-core) (v2.0.0)
 
 ## Installation
 
 1. Clone this repository:
 
-   ```bash
-   git clone https://github.com/enma11235/quickpolls-client.git
-   cd quickpolls-client
+  ```bash
+  git clone https://github.com/enmanuelrdgz/quickpolls-client.git
+  cd quickpolls-client
+  ```
 
-2. Create a .env.local file in the root directory of the project and add the NEXT_PUBLIC_API_URL env variable with the url of the java api
+2. Add enviroment variables:
+
+  ```bash
+  touch .env
+  echo "NEXT_PUBLIC_API_URL='http://localhost:8080" >> .env
+  ```
+
+3. Install dependencies:
+
+  ```bash
+  npm install
+  ```
+
+4. Build and start the application:
+
+  ```bash
+  npm run build
+  npm run start
+  ```
+
+Now you can open your browser in http://localhost:3000 to access the application

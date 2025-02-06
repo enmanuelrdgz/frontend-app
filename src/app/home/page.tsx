@@ -1,55 +1,70 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 import Poll from "../../components/Poll"
 import { PollData } from "@/lib/definitions";
 import axios from "axios";
 import styles from "@/styles/HomePage.module.css"
 
-const HomePage: React.FC = async () => {
+const HomePage: React.FC = () => {
 
-  let polls: PollData[] = [];
-  let networkError: boolean = false
+    const [loading, setLoading] = useState<boolean>(true);
+    const [polls, setPolls] = useState<PollData[]>([]);
+    const [error, setError] = useState<string | null>(null);
 
-  axios.get(process.env.NEXT_PUBLIC_API_URL + '/poll')
-    .then( response => {
-      polls = response.data as PollData[];
-    })
-    .catch(err => {
-      networkError = true;
-      console.log(err.message);
-    })
+    useEffect(() => {
+        axios.get(process.env.NEXT_PUBLIC_API_URL + "/poll")
+            .then(res => {
+                setPolls(res.data as PollData[]);
+            })
+            .catch(err => {
+                setError(err.message)
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+    }, []);
 
   return (
     <>      
       <main>
           {
-              networkError ? 
+                loading ?
 
-              (
-                <strong className={styles.strong}>Network error. Please check everything is ok and then reload the page</strong>
-              )
+                (
+                    <strong className={styles.strong}>Loading...</strong>
+                )
 
-              :
+                :
+            
+                error ? 
 
-              polls.length == 0 ?
+                (
+                    <strong className={styles.strong}>{error}</strong>
+                )
 
-              (
-                  <strong className={styles.strong}>There's no polls</strong>
-              )
+                :
 
-              :
+                polls.length == 0 ?
 
-              (
-                  <ul className={styles.ul}>
-                      {
-                      polls.map((poll: PollData) => (
-                          <li key={poll.id}>
-                              <Poll id={poll.id} title={poll.title} user={poll.user} options={poll.options} votes={poll.votes} created_at={poll.created_at}></Poll>
-                          </li>
-                      ))
-                      }
-                  </ul>                
-              )
-          }
+                (
+                    <strong className={styles.strong}>There's no polls</strong>
+                )
+
+                :
+
+                (
+                    <ul className={styles.ul}>
+                        {
+                        polls.map((poll: PollData) => (
+                            <li key={poll.id}>
+                                <Poll id={poll.id} title={poll.title} user={poll.user} options={poll.options} votes={poll.votes} created_at={poll.created_at}></Poll>
+                            </li>
+                        ))
+                        }
+                    </ul>                
+                )
+            }
       </main>
     </>
   );

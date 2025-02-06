@@ -5,7 +5,7 @@ const SignInPage: React.FC = () => {
     return (
         <main className={styles.main}>
             <h1>Sign In</h1>
-            <AuthForm action="/signin" />
+            <AuthForm action="/auth/signin" />
         </main>
     )
 }
