@@ -24,7 +24,7 @@ Before running the application, ensure you have the following installed:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/yourusername/nextpolls-web-client.git
-   cd nextpolls-web-client
+   git clone https://github.com/enma11235/quickpolls-client.git
+   cd quickpolls-client
 
-2. Create a .env.local file in the root of the project and add the NEXT_PUBLIC_API_URL env variable with the url of the java api
+2. Create a .env.local file in the root directory of the project and add the NEXT_PUBLIC_API_URL env variable with the url of the java api

@@ -1,46 +1,38 @@
 import Link from 'next/link';
+import styles from '@/styles/HomeLayout.module.css'
 
 export default function HomeLayout({ children }: {children: React.ReactNode}) {
     return (
-        <>
-            <header>
+        <div className={styles.wrapper}>
+            <div className={styles.gap}/>
+
+            <aside className={styles.aside}>
                 <nav>
-                    <ul>
+                    <ul className={styles.ul}>
                         <li>
                             <Link href="/home">
-                                Home
+                                <button className={styles.btn}>Home</button>
                             </Link>
                         </li>
                         
                         <li>
                             <Link href="/home/createPoll">
-                                Create Poll
+                                <button className={styles.btn}>Create Poll</button>                               
                             </Link>
                         </li>
-                        
-                        <li>
-                            <Link href="/home/myPolls">
-                                My Polls
-                            </Link>
-                        </li>
-                        
-                        <li>
-                            <Link href="/home/editProfile">
-                                Edit Profile
-                            </Link>
-                        </li>
-                        
+                                                
                         <li>
                             <Link href="/">
-                                Log Out
+                            <button className={styles.btn}>Log Out</button>  
                             </Link> 
                         </li>
-                           
                     </ul>
                 </nav>
-            </header>
+            </aside>
 
-            {children}
-        </>
+            <div className={styles.mainContent}>
+                {children}
+            </div>
+        </div>
     );
 }

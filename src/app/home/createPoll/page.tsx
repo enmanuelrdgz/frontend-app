@@ -1,13 +1,14 @@
 "use client"
 
-import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import styles from "@/styles/CreatePollPage.module.css"
 
 const CreatePollPage: React.FC = () => {
 
   const [title, setTitle] = useState<string>(""); 
-  const [options, setOptions] = useState<string[]>(["", ""]);
+  const [warning, setWarning] = useState<string>(""); 
+  const [options, setOptions] = useState<string[]>([]);
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
@@ -24,12 +25,8 @@ const CreatePollPage: React.FC = () => {
   };
 
   const removeOption = (index: number) => {
-    if (options.length > 2) {
       const updatedOptions = options.filter((_, i) => i !== index);
       setOptions(updatedOptions);
-    } else {
-      alert("Poll must have at least two options");
-    }
   };
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -41,11 +38,14 @@ const CreatePollPage: React.FC = () => {
         token: localStorage.getItem("token")
     }
 
-    axios.post(process.env.NEXT_PUBLIC_API_URL + "/api/poll", body, {headers: {token: localStorage.getItem("token")}})
-      .then(() => {
-          alert("Survey created succesfully!");
-      })
-      .catch(err => alert(err.message));
+    axios.post(process.env.NEXT_PUBLIC_API_URL + "/poll", body)
+        .then(() => {
+            alert("Survey created succesfully!");
+        })
+        .catch(err => {
+            console.log(err.message);
+            setWarning(err.response?.data.message);
+        });
 
     setTitle("");
     setOptions(["", ""]);
@@ -53,47 +53,56 @@ const CreatePollPage: React.FC = () => {
 
   return (
     <main>
-        <h1>Create Poll</h1>
+        <form onSubmit={handleSubmit} className={styles.form}>
+            <strong className={styles.title}>Create Poll</strong>
 
-        <p>Description for this page</p>
+            <fieldset className={styles.fieldset}>
+                <legend>Choose a title for your poll</legend>
 
-        <form onSubmit={handleSubmit}>
-            <fieldset>
-                <legend>Enter the poll title</legend>
-                <label>Title:
-                    <input type="text" value={title} onChange={handleTitleChange} required/>
-                </label>
+                <input className={styles.input} type="text" placeholder='title' value={title} onChange={handleTitleChange} required/>
             </fieldset>
 
-            <fieldset>
-                <legend>Enter the poll options</legend>
+            <fieldset className={styles.fieldset}>
+                <legend>Enter the options for your poll</legend>
 
-                <ul>
+                <ul className={styles.ul}>
+                    <li>
+                        <input className={styles.input} type="text" placeholder='Option 1' required/>
+                    </li>
+
+                    <li>
+                        <input className={styles.input} type="text" placeholder='Option 2' required/>
+                        <button style={{visibility: "hidden"}}>
+                            X
+                        </button>
+                    </li>
+
                     {options.map((option, index) => (
                     <li key={index}>
-                        <label>Option:
-                            <input
-                                type="text"
-                                value={option}
-                                onChange={(e) => handleOptionChange(index, e.target.value)}
-                                placeholder={`Option ${index + 1}`}
-                                required
-                            />
-                        </label>
+                        <input
+                            className={styles.input}
+                            type="text"
+                            value={option}
+                            onChange={(e) => handleOptionChange(index, e.target.value)}
+                            placeholder={`Option ${index + 3}`}
+                            required
+                        />
                         
-                        <button type="button" onClick={() => removeOption(index)}>
-                            Remove
+                        <button className={styles.removeBtn} type="button" onClick={() => removeOption(index)}>
+                            X
                         </button>                        
                     </li>
                     ))}
                 </ul>
 
-                <button type="button" onClick={addOption}>
+                <button className={styles.btn} type="button" onClick={addOption}>
                     Add New Option
                 </button>
             </fieldset>
 
-            <button type='submit'>Create</button>
+            <strong style={{color: "red"}}>{warning}</strong>
+
+            <button className={styles.btn} type='submit'>Create</button>
         </form>
     </main>
   );
