@@ -55,7 +55,6 @@ const HomePage: React.FC = () => {
 
                 (
                     <>
-                        <div className={styles.gap}/>
                         <ul className={styles.ul}>
                             {
                                 polls.map((poll: PollData) => (

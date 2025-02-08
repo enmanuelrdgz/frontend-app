@@ -65,7 +65,7 @@ const CreatePollPage: React.FC = () => {
   };
 
   return (
-    <main>
+    <main className={styles.main}>
         <form onSubmit={handleSubmit} className={styles.form}>
             <strong className={styles.title}>Create Poll</strong>
 
