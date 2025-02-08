@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useAuth } from '../context/AuthContext';
 import { ChangeEvent, useState } from "react"
 import styles from "@/styles/AuthForm.module.css"
 import globalStyles from "@/styles/globals.module.css"
@@ -11,6 +12,7 @@ interface AuthFormProps {
 }
 
 const AuthForm: React.FC<AuthFormProps> = ({action}) => {
+    const { signin } = useAuth();
     const router = useRouter()
 
     const [nickname, setNickname] = useState<string>("");
@@ -35,7 +37,7 @@ const AuthForm: React.FC<AuthFormProps> = ({action}) => {
 
         axios.post(process.env.NEXT_PUBLIC_API_URL + action, body)
             .then(res => {
-                localStorage.setItem("token", res.data.token)
+                signin(res.headers['token'])
                 router.push("/home")
             })
             .catch(err => {

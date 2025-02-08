@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import axios from 'axios';
 import styles from "@/styles/CreatePollPage.module.css"
 
@@ -8,25 +8,35 @@ const CreatePollPage: React.FC = () => {
 
   const [title, setTitle] = useState<string>(""); 
   const [warning, setWarning] = useState<string>(""); 
-  const [options, setOptions] = useState<string[]>([]);
+  const [firstOption, setFirstOption] = useState<string>("")
+  const [secondOption, setSecondOption] = useState<string>("")
+  const [extraOptions, setExtraOptions] = useState<string[]>([]);
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
 
   const handleOptionChange = (index: number, value: string) => {
-    const updatedOptions = [...options];
+    const updatedOptions = [...extraOptions];
     updatedOptions[index] = value;
-    setOptions(updatedOptions);
+    setExtraOptions(updatedOptions);
   };
 
+  const handleFirstOptionChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFirstOption(e.target.value);
+  }
+
+  const handleSecondOptionChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSecondOption(e.target.value);
+  }
+
   const addOption = () => {
-    setOptions([...options, ""]);
+    setExtraOptions([...extraOptions, ""]);
   };
 
   const removeOption = (index: number) => {
-      const updatedOptions = options.filter((_, i) => i !== index);
-      setOptions(updatedOptions);
+      const updatedOptions = extraOptions.filter((_, i) => i !== index);
+      setExtraOptions(updatedOptions);
   };
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -34,11 +44,14 @@ const CreatePollPage: React.FC = () => {
 
     const body = {
         title: title,
-        options: options,
-        token: localStorage.getItem("token")
+        options: [firstOption, secondOption].concat(extraOptions),
     }
 
-    axios.post(process.env.NEXT_PUBLIC_API_URL + "/poll", body)
+    const headers = {
+        token: sessionStorage.getItem("token")
+    }
+
+    axios.post(process.env.NEXT_PUBLIC_API_URL + "/poll", body, {headers: headers})
         .then(() => {
             alert("Survey created succesfully!");
         })
@@ -48,7 +61,7 @@ const CreatePollPage: React.FC = () => {
         });
 
     setTitle("");
-    setOptions(["", ""]);
+    setExtraOptions([]);
   };
 
   return (
@@ -67,17 +80,17 @@ const CreatePollPage: React.FC = () => {
 
                 <ul className={styles.ul}>
                     <li>
-                        <input className={styles.input} type="text" placeholder='Option 1' required/>
+                        <input className={styles.input} onChange={handleFirstOptionChange} type="text" placeholder='Option 1' required/>
                     </li>
 
                     <li>
-                        <input className={styles.input} type="text" placeholder='Option 2' required/>
+                        <input className={styles.input} onChange={handleSecondOptionChange} type="text" placeholder='Option 2' required/>
                         <button style={{visibility: "hidden"}}>
                             X
                         </button>
                     </li>
 
-                    {options.map((option, index) => (
+                    {extraOptions.map((option, index) => (
                     <li key={index}>
                         <input
                             className={styles.input}

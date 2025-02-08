@@ -15,6 +15,6 @@ export interface PollData {
     title: string,
     user: UserData,
     options: OptionData[],
-    votes: number,
+    total_votes: number,
     created_at: string
 }
