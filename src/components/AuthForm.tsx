@@ -35,7 +35,7 @@ const AuthForm: React.FC<AuthFormProps> = ({action}) => {
             password: password
         }
 
-        axios.post(process.env.API_URL + action, body)
+        axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + action, body)
             .then(res => {
                 signin(res.headers['token'])
                 router.push("/home")
