@@ -1,0 +1,22 @@
+body {
+  color: white;
+  background-color: #373737;
+  font-family:  'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn2 {
+  border-radius: 50px;
+  background-color: #D4D4D4;
+  width: 160px;
+  height: 40px;
+}
+
+.input {
+  border-radius: 50px;
+  width: 240px;
+  height: 30px;
+}
