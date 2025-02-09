@@ -51,7 +51,7 @@ const CreatePollPage: React.FC = () => {
         token: sessionStorage.getItem("token")
     }
 
-    axios.post(process.env.NEXT_PUBLIC_API_URL + "/poll", body, {headers: headers})
+    axios.post(process.env.API_URL + "/poll", body, {headers: headers})
         .then(() => {
             alert("Survey created succesfully!");
         })
