@@ -1,20 +1,33 @@
-// app/layout.tsx
-import '../styles/globals.css';
+import { AuthProvider } from '@/context/AuthContext';
+import styles from '@/styles/globals.module.css';
 import { ReactNode } from 'react';
 
 export const metadata = {
-    title: 'Mi Aplicación',
-    description: 'Descripción de mi aplicación',
+    title: 'Poll System',
+    description: 'A site to create quick polls.',
 };
 
 interface RootLayoutProps {
-    children: ReactNode; // Especifica que `children` debe ser un nodo de React
+    children: ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
     return (
-        <html lang="es">
-            <body>{children}</body>
+        <html lang="en">
+            <head>
+                <meta charSet='utf-8'/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta name='robots' content='index, follow'/>
+                <meta name='theme-color' content='#373737'/>
+                <link rel='icon' type='image/jpg' href="https://api.dicebear.com/9.x/bottts/svg?seed=Christian"/>
+                {/* agregar metadatos opengraph */}
+            </head>
+
+            <body className={styles.body}>
+                <AuthProvider>
+                    {children}
+                </AuthProvider>
+            </body>
         </html>
     );
 }

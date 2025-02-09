@@ -1,0 +1,68 @@
+.article {
+    width: 680px;
+    background-color: #151515;
+    margin: 25px;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-size: large;
+}
+
+.ul {
+    list-style: none;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.optionsContainer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.optionName {
+    display: block;
+}
+
+.header span {
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    width: 200px;
+}
+
+.header span address {
+    margin-left: 15px;
+}
+
+.header small {
+    flex-grow: 1;
+    text-align: end;
+}
+
+.option {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.option progress {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 470px;
+}
+
+.option em {
+    margin-left: 33px;
+}

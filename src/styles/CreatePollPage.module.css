@@ -1,0 +1,49 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fieldset {
+    border-radius: 20px;
+    width: 400px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.input {
+    width: 250px;
+    height: 25px;
+    border-radius: 10px;
+}
+
+.ul {
+    list-style: none;
+}
+
+.removeBtn {
+    border-radius: 50px;
+}
+
+.btn {
+    border-radius: 50px;
+    color: white;
+    background-color: #151515;
+    width: 160px;
+    height: 40px;
+}
