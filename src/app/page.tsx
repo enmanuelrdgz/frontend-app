@@ -18,12 +18,6 @@ const IndexPage: React.FC = () => {
                     Sign Up
                 </button>
             </Link>
-            
-            <Link href="/about">
-                <button className={styles.btn}>
-                    About
-                </button>
-            </Link>
         </main>
     );
 };

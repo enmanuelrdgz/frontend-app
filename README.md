@@ -1,6 +1,6 @@
 # quickpolls-client (2.0.0)
 
-This is the web client for QuickPolls. It's built with **Next.js** and provides a user-friendly interface to create, manage, and participate in polls. The backend logic is powered by a Spring Boot API, which connects to a PostgreSQL database.
+This is the web client for QuickPolls. It was built with **Next.js 15** and it provides a **user-friendly interface** to interact with [**quickpolls-core**](https://github.com/enmanuelrdgz/quickpolls-core).
 
 ## Prerequisites
 
@@ -39,4 +39,4 @@ Before running the application, ensure you have the following installed:
   npm run start
   ```
 
-Now you can open your browser in http://localhost:3000 to access the application
+> Now the application should be running **locally** on port **3000**

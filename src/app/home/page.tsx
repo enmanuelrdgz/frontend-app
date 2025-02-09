@@ -16,7 +16,6 @@ const HomePage: React.FC = () => {
         axios.get(process.env.NEXT_PUBLIC_API_URL + "/poll")
             .then(res => {
                 setPolls(res.data.polls as PollData[]);
-                console.log(polls)
             })
             .catch(err => {
                 setError(err.message)
@@ -48,7 +47,7 @@ const HomePage: React.FC = () => {
                 polls.length == 0 ?
 
                 (
-                    <strong className={styles.strong}>There's no polls</strong>
+                    <strong className={styles.strong}>There&apos;s no polls</strong>
                 )
 
                 :

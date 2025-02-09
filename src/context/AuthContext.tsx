@@ -1,8 +1,14 @@
 "use client"
 
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
 
-const AuthContext = createContext({isAuthenticated: false, signin: (token: string) => {}, signout: () => {}});
+type AuthContextType = {
+  isAuthenticated: boolean;
+  signin: (token: string) => void;
+  signout: () => void;
+};
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 interface AuthProviderProps {
     children: ReactNode
@@ -30,4 +36,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useAuthContext must be used inside AuthProvider');
+  }
+  return context;
+};

@@ -36,7 +36,7 @@ const Poll: React.FC<PollData> = ({id, title, user, options, total_votes, create
         <article className={styles.article}>
             <header className={styles.header}>
                 <span>
-                    <Image src="/default.jpg" alt="ProfilePicture" width={50} height={50} style={{borderRadius: "100px"}}/>
+                    <Image src={"https://api.dicebear.com/9.x/initials/svg?seed=" + user.nickname} alt="ProfilePicture" width={50} height={50} style={{borderRadius: "100px"}}/>
                     <address>{pollData.user.nickname}</address>
                 </span>
 
