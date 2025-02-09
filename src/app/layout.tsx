@@ -1,5 +1,5 @@
 import { AuthProvider } from '@/context/AuthContext';
-import '@/styles/globals.module.css';
+import styles from '@/styles/globals.module.css';
 import { ReactNode } from 'react';
 
 export const metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 {/* agregar metadatos opengraph */}
             </head>
 
-            <body>
+            <body className={styles.body}>
                 <AuthProvider>
                     {children}
                 </AuthProvider>
