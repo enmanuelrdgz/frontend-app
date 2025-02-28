@@ -1,12 +1,6 @@
 {
-  "name": "mypolls-frontend",
+  "name": "project1-frontend",
   "version": "2.0.1",
-  "author": "Enmanuel Rodriguez",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/enmanuelrdgz/mypolls-frontend"
-  },
-  "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
