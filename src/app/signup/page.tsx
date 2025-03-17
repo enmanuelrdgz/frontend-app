@@ -1,11 +1,11 @@
-import Form from "@/components/Form";
+import AuthForm from "@/components/AuthForm";
 import styles from "@/styles/AuthPages.module.css"
 
 const SignUpPage: React.FC = () => {
     return (
         <main className={styles.main}>
             <h1>Sign Up</h1>
-            <Form action="/auth/signup" />
+            <AuthForm action="/auth/signup" />
         </main>
     )
 }

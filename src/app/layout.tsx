@@ -20,6 +20,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <meta name='robots' content='index, follow'/>
                 <meta name='theme-color' content='#373737'/>
                 <link rel='icon' type='image/jpg' href="https://api.dicebear.com/9.x/bottts/svg?seed=Christian"/>
+                {/* agregar metadatos opengraph */}
             </head>
 
             <body className={styles.body}>

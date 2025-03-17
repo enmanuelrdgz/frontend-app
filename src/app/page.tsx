@@ -5,9 +5,11 @@ const IndexPage: React.FC = () => {
 
     return (
         <main className={styles.main}>
+            <h1>🌟 Welcome 🌟</h1>
+
             <Link href="/signin">
                 <button className={styles.btn}>
-                    Log In
+                    Sign In
                 </button>
             </Link>
             

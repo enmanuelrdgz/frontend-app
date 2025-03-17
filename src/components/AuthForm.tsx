@@ -7,11 +7,11 @@ import { ChangeEvent, useState } from "react"
 import styles from "@/styles/AuthForm.module.css"
 import globalStyles from "@/styles/globals.module.css"
 
-interface FormProps {
+interface AuthFormProps {
     action: string
 }
 
-const Form: React.FC<FormProps> = ({action}) => {
+const AuthForm: React.FC<AuthFormProps> = ({action}) => {
     const { signin } = useAuth();
     const router = useRouter()
 
@@ -80,4 +80,4 @@ const Form: React.FC<FormProps> = ({action}) => {
     )
 }
 
-export default Form;
+export default AuthForm;
