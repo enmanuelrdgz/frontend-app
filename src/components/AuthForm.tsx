@@ -35,7 +35,7 @@ const AuthForm: React.FC<AuthFormProps> = ({action}) => {
             password: password
         }
 
-        axios.post("http://localhost:8080" + action, body)
+        axios.post("http://ec2-3-145-177-192.us-east-2.compute.amazonaws.com:8080" + action, body)
             .then(res => {
                 signin(res.headers['token'])
                 router.push("/home")

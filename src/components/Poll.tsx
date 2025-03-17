@@ -25,7 +25,7 @@ const Poll: React.FC<PollData> = ({id, title, user, options, total_votes, create
             "token": sessionStorage.getItem("token")
         }
 
-        axios.post("http://localhost:8080" + "/poll/vote", body, {headers: headers})
+        axios.post("http://ec2-3-145-177-192.us-east-2.compute.amazonaws.com:8080" + "/poll/vote", body, {headers: headers})
             .then(res => {
                 setPollData(res.data.pollData as PollData)
             })

@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        axios.get("http://localhost:8080" + "/poll")
+        axios.get("http://ec2-3-145-177-192.us-east-2.compute.amazonaws.com:8080" + "/poll")
             .then(res => {
                 setPolls(res.data.polls as PollData[]);
             })
