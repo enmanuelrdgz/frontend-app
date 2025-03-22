@@ -1,7 +1,6 @@
 {
-  "name": "@portfolio/web-app",
+  "name": "project1-frontend",
   "version": "2.0.1",
-  "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
