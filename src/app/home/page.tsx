@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Poll from "../../components/Poll"
-import { PollData } from "@/lib/definitions";
+import { PollData } from "@/utils/definitions";
 import axios from "axios";
 import styles from "@/styles/HomePage.module.css"
 

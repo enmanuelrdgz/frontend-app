@@ -1,9 +1,9 @@
 "use client"
 
-import calcultePercentage from "@/lib/calculatePercentage";
+import calcultePercentage from "@/utils/calculatePercentage";
 import { useState } from "react";
 import axios from "axios";
-import { PollData } from "@/lib/definitions";
+import { PollData } from "@/utils/definitions";
 import styles from "@/styles/PollComponent.module.css"
 import Image from "next/image";
 
