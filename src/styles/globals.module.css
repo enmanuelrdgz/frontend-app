@@ -9,14 +9,27 @@
 }
 
 .btn2 {
-  border-radius: 50px;
-  background-color: #D4D4D4;
   width: 160px;
   height: 40px;
+  font-size: 1.2em;
+  border-radius: 50px;
+  color:  #D4D4D4;
+  background-color: rgb(66, 66, 233);
+  width: 160px;
+  height: 40px;
+  border: none;
+  margin-top: 1rem;
+}
+.btn2:hover{
+  border: 1px solid;
+  background-color: rgba(66, 66, 233, 0.778);
 }
 
 .input {
-  border-radius: 50px;
   width: 240px;
-  height: 30px;
+  height: 25px;
+  border: none;
+  font-size: 1.2em;
+  outline-style: none;
+
 }

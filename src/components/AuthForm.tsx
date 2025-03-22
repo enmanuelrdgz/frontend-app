@@ -48,7 +48,8 @@ const AuthForm: React.FC<AuthFormProps> = ({action}) => {
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
-            <label>Nickname:
+            <div className={styles.campus_container}>
+            <label className={styles.label}>Nickname</label>
                 <input
                     className={globalStyles.input}
                     type="text"
@@ -56,10 +57,12 @@ const AuthForm: React.FC<AuthFormProps> = ({action}) => {
                     onChange={handleNicknameChange}
                     required
                     style={{marginBottom: "10px"}}
-                />
-            </label>
+                    />
             
-            <label>Password:
+            </div>
+            <div className={styles.campus_container}>
+
+            <label className={styles.label}>Password</label>
                 <input
                     className={globalStyles.input}
                     type="password"
@@ -68,8 +71,8 @@ const AuthForm: React.FC<AuthFormProps> = ({action}) => {
                     minLength={8}
                     required
                     style={{marginBottom: "10px"}}
-                />
-            </label>
+                    />
+                    </div>
 
             <button className={globalStyles.btn2} type="submit">
                 Send

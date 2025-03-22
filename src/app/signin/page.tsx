@@ -4,7 +4,7 @@ import styles from "@/styles/AuthPages.module.css"
 const SignInPage: React.FC = () => {
     return (
         <main className={styles.main}>
-            <h1>Sign In</h1>
+            <h1 className={styles.title}>Sign In</h1>
             <AuthForm action="/auth/signin" />
         </main>
     )

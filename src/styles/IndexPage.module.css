@@ -9,23 +9,25 @@
 
 .btnContainer {
     display: flex;
-    flex-direction: row;
+   flex-direction: row;
 }
 
 .btn {
+    margin-top: 1em;
+    font-size: 20px;
     border-radius: 50px;
-    color: white;
-    background-color: #151515;
+    color:  #D4D4D4;
+    background-color: rgb(66, 66, 233);
     width: 160px;
     height: 40px;
+   border: none;
+}
+.btn:hover{
+    border: 1px solid;
+    background-color: rgba(66, 66, 233, 0.778);
 }
 
-.btn2 {
-    border-radius: 50px;
-    background-color: #D4D4D4;
-    width: 160px;
-    height: 40px;
-}
+
 
 .dialog {
     position: absolute;
