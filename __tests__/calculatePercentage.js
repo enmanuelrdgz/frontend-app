@@ -14,6 +14,7 @@ import calculatePercentage from "../src/utils/calculatePercentage.ts"
     test("devolver el cien porciento si recibo dos numeros del mismo valor" , ()=>{
         const porcentaje = calculatePercentage(10,10)
         expect(porcentaje).toBe(100)
-    })
+    }) 
  
+    
     
